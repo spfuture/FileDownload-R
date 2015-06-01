@@ -685,7 +685,7 @@ if (!empty($_GET['fdldir']) || !empty($_GET['fdlfile'])) {
     /**
      * check referrer and the page
      */
-    if ($baseRef !== $page) {
+    if ($baseRef !== $page && !empty($scriptProperties['userGroups'])) {
         return $modx->sendUnauthorizedPage();
     }
     $sanitizedGets = $modx->sanitize($_GET);
